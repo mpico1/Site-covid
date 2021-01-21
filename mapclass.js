@@ -5,7 +5,7 @@ function setup(){
   
   function draw(){
     background(blue);
-    fill(0);
+    fill(200);
     beginShape();
         for(let i = 0; i < 800; i = i + 5){
             x=x+i-400;
@@ -23,3 +23,6 @@ function setup(){
         
     }
 }*/
+
+
+
