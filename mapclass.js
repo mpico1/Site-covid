@@ -1,13 +1,14 @@
 let x = 0;
 let y = 0;
 let dir = 1;
-let h = 400;
+let yac = -0.01;
+let yvel = 0;
 function setup(){
     createCanvas(800, 800);
   }
   
   function draw(){
-    background (161,202,241)
+    background (161,202,241);
     fill(132,192,17);
     ground();
     teclas();
@@ -16,8 +17,11 @@ function setup(){
   }
 
 function teclas(){
+    if ((keyIsDown(32)) && (y >= alturah(400))) {
+      yvel = 10;
+   }
     if (keyIsDown(LEFT_ARROW)) {
-      dir = 0
+      dir = -1
       x -= 5;
     }
 
@@ -25,21 +29,28 @@ function teclas(){
      dir = 1
       x += 5;
    }
-  if (keyIsDown(32)) {
-      y += 5;
-   }
+
 }
 
-function gravidade(){
-  let ac=1
-  if (true){}
-}
 
 function eu(){
-  fill(255,0,0);
-  y = alturah(400);
-  rect(400-10, y-50, 20,50);
-}
+    fill(255,0,0);
+  yac =-0.5
+    yvel = yvel + yac;
+    if(y > alturah(400)){
+        yac = 0;
+        yvel =0;
+        y = alturah(400);
+    }
+    y = y-yvel;
+    rect(400-10, y-30, 20,30);
+    fill (241, 194, 125);
+    rect(400-10,y-50,20,20);
+    fill(100);
+    rect(400, y-45, 5*dir,5);
+    fill(141, 85, 36);
+    rect(400-10,y-55,20,05);
+  }
 
 function ground(){
   beginShape();
