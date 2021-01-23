@@ -85,10 +85,14 @@ class Eu{
 class mob{
   constructor(pos){
     this.x = x;
-    
+    this.dir = 1;
   }
   move(){
-    this.x =1+this.x-vari;
+    if(this.x >400){
+      this.dir = -1;
+    }
+    else{this.dir = 1;}
+    this.x =this.dir+this.x-vari;
     this.y = alturah(this.x);
   }
   show(){
